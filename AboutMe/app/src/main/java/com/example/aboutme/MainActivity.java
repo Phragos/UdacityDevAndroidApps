@@ -53,7 +53,16 @@ public class MainActivity extends AppCompatActivity {
         nicknameTextView.setVisibility(View.VISIBLE);*/
 
         // With layout binding
-        binding.nicknameText.setText(binding.nicknameEdit.getText());
+
+        // Without data binding
+        // binding.nicknameText.setText(binding.nicknameEdit.getText());
+
+        // With data binding
+        binding.getMyName().setNickname(binding.nicknameEdit.getText().toString());
+
+        // Invalidates all binding expressions and requests a new rebind to refresh UI - source https://developer.android.com/reference/android/databinding/ViewDataBinding
+        binding.invalidateAll();
+
         binding.nicknameEdit.setVisibility(View.GONE);
         binding.doneButton.setVisibility(View.GONE);
         binding.nicknameText.setVisibility(View.VISIBLE);
