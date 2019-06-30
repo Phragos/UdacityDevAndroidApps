@@ -15,7 +15,6 @@ import com.example.aboutme.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private MyName myName = new MyName("Rainbow World");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         // This is with layout binding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.setMyName(myName);
+        binding.setMyName(new MyName("Rainbow World"));
         binding.doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
