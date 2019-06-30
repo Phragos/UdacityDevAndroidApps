@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    // This allows to bind a whole layout, which allows to access its views without using findviewbyid
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
