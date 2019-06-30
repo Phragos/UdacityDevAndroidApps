@@ -15,13 +15,13 @@ import com.example.aboutme.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private MyName myName = new MyName("Rainbow World");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // This is no longer needed when using binding
         //setContentView(R.layout.activity_main);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         // This is without layout binding
         /*findViewById(R.id.done_button).setOnClickListener(new View.OnClickListener() {
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
         // This is with layout binding
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setMyName(myName);
         binding.doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="myName"
+            type="com.example.aboutme.MyName" />
+
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- The text attribute in this comment section is to work with the text in the String file
+        The attribute in the TextView allows to work with the Class/data
+        android:text="@string/name"
+        -->
         <TextView
             android:id="@+id/textView"
             style="@style/NameStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name"
+            android:text="@={myName.name,default=Name}"
             android:textAlignment="center" />
 
         <EditText
