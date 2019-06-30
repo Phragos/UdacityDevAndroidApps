@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         clickableViews.add(findViewById(R.id.box_four_text));
         clickableViews.add(findViewById(R.id.box_five_text));
         clickableViews.add(findViewById(R.id.colored_boxes_layout));
+        clickableViews.add(findViewById(R.id.red_button));
+        clickableViews.add(findViewById(R.id.yellow_button));
+        clickableViews.add(findViewById(R.id.green_button));
 
         for (View clkView : clickableViews) {
             clkView.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.box_five_text:
                 view.setBackgroundResource(android.R.color.holo_orange_light);
+                break;
+            case R.id.red_button:
+                findViewById(R.id.box_three_text).setBackgroundResource(R.color.my_red);
+                break;
+            case R.id.green_button:
+                findViewById(R.id.box_five_text).setBackgroundResource(R.color.my_green);
+                break;
+            case R.id.yellow_button:
+                findViewById(R.id.box_four_text).setBackgroundResource(R.color.my_yellow);
                 break;
             default:
                 view.setBackgroundColor(Color.LTGRAY);
