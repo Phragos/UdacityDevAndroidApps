@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,64 +44,103 @@ public class MainActivity extends AppCompatActivity {
 
     private void makeColored(View view) {
 
-        int currentView = view.getId();
-
-        switch (currentView) {
-            case R.id.box_one_text:
-                view.setBackgroundColor(Color.MAGENTA);
-                break;
-            case R.id.box_two_text:
-                view.setBackgroundColor(Color.GRAY);
-                break;
-            case R.id.box_three_text:
-                view.setBackgroundResource(android.R.color.holo_green_light);
-                break;
-            case R.id.box_four_text:
-                view.setBackgroundResource(android.R.color.holo_green_dark);
-                break;
-            case R.id.box_five_text:
-                view.setBackgroundResource(android.R.color.holo_orange_light);
-                break;
-            case R.id.red_button:
-                findViewById(R.id.box_three_text).setBackgroundResource(R.color.my_red);
-                break;
-            case R.id.green_button:
-                findViewById(R.id.box_five_text).setBackgroundResource(R.color.my_green);
-                break;
-            case R.id.yellow_button:
-                findViewById(R.id.box_four_text).setBackgroundResource(R.color.my_yellow);
-                break;
-            default:
-                view.setBackgroundColor(Color.LTGRAY);
-        }
+//        int currentView = view.getId();
+//
+//        switch (currentView) {
+//            case R.id.box_one_text:
+//                view.setBackgroundColor(Color.MAGENTA);
+//                break;
+//            case R.id.box_two_text:
+//                view.setBackgroundColor(Color.GRAY);
+//                break;
+//            case R.id.box_three_text:
+//                view.setBackgroundResource(android.R.color.holo_green_light);
+//                break;
+//            case R.id.box_four_text:
+//                view.setBackgroundResource(android.R.color.holo_green_dark);
+//                break;
+//            case R.id.box_five_text:
+//                view.setBackgroundResource(android.R.color.holo_orange_light);
+//                break;
+//            case R.id.red_button:
+//                findViewById(R.id.box_three_text).setBackgroundResource(R.color.my_red);
+//                break;
+//            case R.id.green_button:
+//                findViewById(R.id.box_five_text).setBackgroundResource(R.color.my_green);
+//                break;
+//            case R.id.yellow_button:
+//                findViewById(R.id.box_four_text).setBackgroundResource(R.color.my_yellow);
+//                break;
+//            default:
+//                view.setBackgroundColor(Color.LTGRAY);
+//        }
 
 // This part makes the app crash, need to figure out why
-//        //TextView testView = (TextView) findViewById(R.id.test_text);
-//
-//        // Randomly select between Color class colors or Android color resources
-//        int colorTypePicker = (int) (Math.round(Math.random()));
-//
-//
-//
-//        if (colorTypePicker == 1) {
-//            // Boxes using Color class colors for background
-//            int[] colors = {Color.BLACK, Color.BLUE, Color.CYAN, Color.DKGRAY, Color.GRAY, Color.GREEN, Color.LTGRAY, Color.MAGENTA, Color.RED, Color.WHITE, Color.YELLOW};
-//            int colorIndex = (int) (Math.random() * colors.length) + 1;
-//
-//            //String testText =  "Color class: " + Integer.toString(colors[colorIndex]);
-//            //testView.setText(testText);
-//            view.setBackgroundColor(colors[colorIndex]);
-//        } else {
-//            // Boxes using Android color resources for background
-//            int[] resID = {android.R.color.background_dark, android.R.color.background_light, android.R.color.black, android.R.color.darker_gray, android.R.color.holo_blue_bright,
-//                    android.R.color.holo_green_dark, android.R.color.holo_orange_dark, android.R.color.holo_purple, android.R.color.holo_red_light, android.R.color.holo_green_light};
-//            int resIndex = (int) (Math.random() * resID.length) + 1;
-//
-//            //String testText =  "Android color resource: " + Integer.toString(resID[resIndex]);
-//            //testView.setText(testText);
-//            view.setBackgroundResource(resID[resIndex]);
-//
-//        }
+
+        if (view.getId() == R.id.green_button) {
+
+            // Get all the boxes
+            View[] boxViews = {findViewById(R.id.box_one_text), findViewById(R.id.box_two_text), findViewById(R.id.box_three_text),
+                    findViewById(R.id.box_four_text), findViewById(R.id.box_five_text), findViewById(R.id.info_text), findViewById(R.id.label_text)};
+
+            // Set the background to white
+            findViewById(R.id.colored_boxes_layout).setBackgroundColor(Color.WHITE);
+
+            // Set all boxes' background to green
+            for (View boxView : boxViews) {
+                boxView.setBackgroundResource(R.color.my_green);
+            }
+
+        } else if (view.getId() == R.id.red_button) {
+
+            // Get all the boxes
+            View[] boxViews = {findViewById(R.id.box_one_text), findViewById(R.id.box_two_text), findViewById(R.id.box_three_text),
+                    findViewById(R.id.box_four_text), findViewById(R.id.box_five_text), findViewById(R.id.info_text), findViewById(R.id.label_text)};
+
+            // Set the background to white
+            findViewById(R.id.colored_boxes_layout).setBackgroundColor(Color.BLACK);
+
+            // Set all boxes' background to red
+            for (View boxView : boxViews) {
+                boxView.setBackgroundResource(R.color.my_red);
+            }
+
+        } else if (view.getId() == R.id.yellow_button) {
+
+            // Get all the boxes
+            View[] boxViews = {findViewById(R.id.box_one_text), findViewById(R.id.box_two_text), findViewById(R.id.box_three_text),
+                    findViewById(R.id.box_four_text), findViewById(R.id.box_five_text), findViewById(R.id.info_text), findViewById(R.id.label_text)};
+
+            // Set the background to white
+            findViewById(R.id.colored_boxes_layout).setBackgroundColor(Color.BLUE);
+
+            // Set all boxes' background to yellow
+            for (View boxView : boxViews) {
+                boxView.setBackgroundResource(R.color.my_yellow);
+            }
+
+        } else {
+
+            // Randomly select between Color class colors or Android color resources
+            int colorTypePicker = (int) (Math.round(Math.random()));
+
+            if (colorTypePicker == 1) {
+                // Boxes using Color class colors for background
+                int[] colors = {Color.BLACK, Color.BLUE, Color.CYAN, Color.DKGRAY, Color.GRAY, Color.GREEN, Color.LTGRAY, Color.MAGENTA, Color.RED, Color.WHITE, Color.YELLOW};
+                int colorIndex = (int) (Math.random() * colors.length);
+
+                view.setBackgroundColor(colors[colorIndex]);
+            } else {
+                // Boxes using Android color resources for background
+                int[] resID = {android.R.color.background_dark, android.R.color.background_light, android.R.color.black, android.R.color.darker_gray, android.R.color.holo_blue_bright,
+                        android.R.color.holo_green_dark, android.R.color.holo_orange_dark, android.R.color.holo_purple, android.R.color.holo_red_light, android.R.color.holo_green_light};
+                int resIndex = (int) (Math.random() * resID.length);
+
+                view.setBackgroundResource(resID[resIndex]);
+
+            }
+
+        }
 
     }
 
